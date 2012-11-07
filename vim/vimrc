@@ -1,0 +1,178 @@
+set noswapfile
+
+" ----------------------------------------------------------------------------
+"  Load pathogen
+" ----------------------------------------------------------------------------
+
+call pathogen#infect('~/.dotfiles/vim/colors')
+call pathogen#infect('~/.dotfiles/vim/lang')
+call pathogen#infect('~/.dotfiles/vim/tools')
+call pathogen#helptags()
+
+
+" ----------------------------------------------------------------------------
+"  Text Formatting
+" ----------------------------------------------------------------------------
+
+set autoindent             " automatic indent new lines
+set smartindent            " be smart about it
+inoremap # X<BS>#
+set nowrap                 " do not wrap lines
+set softtabstop=2          " yep, two
+set shiftwidth=2           " ..
+set tabstop=4
+set expandtab              " expand tabs to spaces
+set nosmarttab             "
+set formatoptions+=n       " support for numbered/bullet lists
+"set textwidth=80           " wrap at 80 chars by default
+set virtualedit=block      " allow virtual edit in visual block ..
+set encoding=utf-8         " set default encoding to UTF-8
+set list
+filetype plugin on
+filetype indent on         
+
+" ----------------------------------------------------------------------------
+"  Remapping
+" ----------------------------------------------------------------------------
+
+" lead with ,
+let mapleader = ","
+
+" exit to normal mode with 'jj'
+inoremap jj <ESC>
+
+
+" reflow paragraph with Q in normal and visual mode
+nnoremap Q gqap
+vnoremap Q gq
+
+" sane movement with wrap turned on
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
+
+" fast saving
+nmap <leader>w :w!<cr>
+nmap <leader>wq :wq!<cr>
+nmap <leader>q :q!<cr>
+
+" move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove 
+map <leader>t<leader> :tabnext
+
+" upper/lower word
+nmap <leader>u mQviwU`Q
+nmap <leader>l mQviwu`Q
+
+" upper/lower first char of word
+nmap <leader>U mQgewvU`Q
+nmap <leader>L mQgewvu`Q
+
+" cd to the directory containing the file in the buffer
+nmap <silent> <leader>cd :lcd %:h<CR>
+
+" Create the directory containing the file in the buffer
+nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
+
+
+" ----------------------------------------------------------------------------
+"  UI
+" ----------------------------------------------------------------------------
+
+set ruler                  " show the cursor position all the time
+set noshowcmd              " don't display incomplete commands
+set nolazyredraw           " turn off lazy redraw
+set number                 " line numbers
+set wildmenu               " turn on wild menu
+set wildmode=list:longest,full
+set ch=2                   " command line height
+set backspace=2            " allow backspacing over everything in insert mode
+set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
+set shortmess=filtIoOA     " shorten messages
+set report=0               " tell us about changes
+set nostartofline          " don't jump to the start of line when scrolling
+syntax enable              " turn on syntax highlight
+set background=dark        " set background to dark
+colorscheme Tomorrow-Night
+
+" ----------------------------------------------------------------------------
+"  GUI
+" ----------------------------------------------------------------------------
+
+if has("gui_running")
+    set guioptions-=T
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+
+
+" ----------------------------------------------------------------------------
+"  Visual Cues
+" ----------------------------------------------------------------------------
+
+set showmatch              " brackets/braces that is
+set mat=5                  " duration to show matching brace (1/10 sec)
+set incsearch              " do incremental searching
+set laststatus=2           " always show the status line
+set ignorecase             " ignore case when searching
+set nohlsearch             " don't highlight searches
+set visualbell             " shut the fuck up
+
+
+" ---------------------------------------------------------------------------
+"  Strip all trailing whitespace in file
+" ---------------------------------------------------------------------------
+
+function! StripWhitespace ()
+    exec ':%s/ \+$//gc'
+endfunction
+map ,s :call StripWhitespace ()<CR>
+
+
+" ----------------------------------------------------------------------------
+"  Plugins
+" ----------------------------------------------------------------------------
+
+" bufExplorer
+let g:bufExplorerDefaultHelp=0
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerFindActive=1
+let g:bufExplorerSortBy='name'
+map <leader>o :BufExplorer<cr>
+
+" MRU
+let MRU_Max_Entries = 400
+map <leader>f :MRU<CR>
+
+" CTRL-P
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_map = '<c-f>'
+
+" solarized
+let g:solarized_termcolors=256
+
+" Nerd Tree
+nmap <F5> :NERDTreeToggle<cr>
+map <leader>nn :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeFromBookmark 
+map <leader>nf :NERDTreeFind<cr>
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
