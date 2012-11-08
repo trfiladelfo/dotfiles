@@ -170,3 +170,9 @@
 [submodule "vim/tools/indent-guides"]
 	path = vim/tools/indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vim/tools/pathogen"]
+	path = vim/tools/pathogen
+	url = git://github.com/tpope/vim-pathogen.git
