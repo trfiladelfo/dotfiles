@@ -1,2 +1,3 @@
 $HOME/.rvm/bin   # Add RVM to PATH for scripting
 $DOTFILES/bin    # Add ~/.dotfiles/bin to Path
+$DOTFILES/vm/bin 

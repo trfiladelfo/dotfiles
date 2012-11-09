@@ -1,4 +1,12 @@
-cat >> $HOME/.zshrc << EOF
+bin=$DOTFILES/bin
+src=$DOTFILES/src
+install_ack() {
+  url="http://betterthangrep.com/ack-standalone"
+  curl $url -sLo $bin/ack && chmod +x $bin/ack
+}
 
-PATH=$PATH:$HOME/.dotfiles/bin #add dotfiles to your path
-EOF
+install_hub() {
+  url="http://defunkt.io/hub/standalone"
+  curl $url -Lo $bin/hub && chmod +x $bin/hub
+}
+
