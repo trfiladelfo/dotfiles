@@ -1,9 +1,6 @@
 #track current dir
 CURRENT_DIR=$PWD
 
-#load some functions
-. $DOTFILES/scripts/functions.sh
-
 #load all scripts in dotfiles/autoload
 AUTOLOAD_DIR="$DOTFILES/autoload"
 
@@ -16,6 +13,12 @@ if [ `ls $AUTOLOAD_DIR | wc -l` -gt 0 ]; then
   done
 fi
 
+#source all files in dotfiles/aliases
+for file in `ls $DOTFILES/aliases/*`
+do
+  source $file
+done
+
 #read the PATH file and load all directories to path
 for line in `awk '/^[^#]/ { print $1 }' $DOTFILES/PATH`
 do
@@ -26,10 +29,9 @@ do
 done
 
 #link all files in $DOTFILES/symlinks to home
-cd "$DOTFILES/symlinks"
-
-for file in `ls -A`
+for file in `ls -A $DOTFILES/symlinks/`
 do
+  file=`basename $file`
 if [[ "$file" =~ "^\.\w*" ]]; then
   if [[ ! -e "$HOME/$file" ]]; then
     cd $HOME
