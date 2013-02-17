@@ -89,9 +89,6 @@
 [submodule "vim/langs/css3"]
 	path = vim/langs/css3
 	url = git://github.com/hail2u/vim-css3-syntax.git
-[submodule "vim/langs/vala"]
-	path = vim/langs/vala
-	url = git://github.com/ych/vim-vala.git
 [submodule "vim/langs/html5"]
 	path = vim/langs/html5
 	url = git://github.com/othree/html5.vim.git
@@ -146,9 +143,6 @@
 [submodule "vim/tools/endwise"]
 	path = vim/tools/endwise
 	url = git://github.com/tpope/vim-endwise.git
-[submodule "vim/langs/slim"]
-	path = vim/langs/slim
-	url = git://github.com/bbommarito/vim-slim.git
 [submodule "vim/colors/codeschool"]
 	path = vim/colors/codeschool
 	url = git://github.com/29decibel/codeschool-vim-theme.git
