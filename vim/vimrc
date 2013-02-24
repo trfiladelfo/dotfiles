@@ -6,7 +6,7 @@ set noswapfile
 
 source ~/.dotfiles/vim/tools/pathogen/autoload/pathogen.vim
 call pathogen#infect('~/.dotfiles/vim/colors')
-call pathogen#infect('~/.dotfiles/vim/lang')
+call pathogen#infect('~/.dotfiles/vim/langs')
 call pathogen#infect('~/.dotfiles/vim/tools')
 call pathogen#helptags()
 
