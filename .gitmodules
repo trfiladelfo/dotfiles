@@ -173,3 +173,9 @@
 [submodule "vim/langs/vala"]
 	path = vim/langs/vala
 	url = https://github.com/DavyS/vim-vala.git
+[submodule "vim/langs/vim-vala"]
+	path = vim/langs/vim-vala
+	url = git://github.com/mytoh/vim-vala.git
+[submodule "vim/langs/vim-vala2"]
+	path = vim/langs/vim-vala2
+	url = git://github.com/mytoh/vim-vala.git
