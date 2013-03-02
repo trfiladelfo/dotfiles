@@ -1,6 +1,6 @@
 #track current dir
 CURRENT_DIR=$PWD
-
+  
 #load all scripts in dotfiles/autoload
 AUTOLOAD_DIR="$DOTFILES/autoload"
 
