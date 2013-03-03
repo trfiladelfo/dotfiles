@@ -177,3 +177,11 @@ map <leader>nf :NERDTreeFind<cr>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" ----------------------------------------------------------------------------
+"  FileType Settings
+" -------------------------------------------------------------------------
+
+autocmd FileType vala setlocal tabstop=4
+autocmd FileType vala setlocal softtabstop=4
+autocmd FileType vala setlocal shiftwidth=4
