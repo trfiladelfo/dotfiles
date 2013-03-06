@@ -173,3 +173,27 @@
 [submodule "vim/langs/fish"]
 	path = vim/langs/fish
 	url = git://github.com/vim-scripts/fish.vim.git
+[submodule "vim/tools/tagbar"]
+	path = vim/tools/tagbar
+	url = git://github.com/majutsushi/tagbar.git
+[submodule "vim/colors/monokai"]
+	path = vim/colors/monokai
+	url = git://github.com/sickill/vim-monokai.git
+[submodule "vim/tools/surround"]
+	path = vim/tools/surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "vim/tools/command-t"]
+	path = vim/tools/command-t
+	url = git://github.com/wincent/Command-T.git
+[submodule "vim/tools/snipmate"]
+	path = vim/tools/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "vim/colors/vim-colors"]
+	path = vim/colors/vim-colors
+	url = https://github.com/DavyS/vim-colors.git
+[submodule "vim/tools/vam"]
+	path = vim/tools/vam
+	url = git://github.com/MarcWeber/vim-addon-manager.git
+[submodule "vim/tools/neocomplcache"]
+	path = vim/tools/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.git
