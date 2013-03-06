@@ -17,9 +17,6 @@
 [submodule "vim/tools/syntastic"]
 	path = vim/tools/syntastic
 	url = git://github.com/scrooloose/syntastic.git
-[submodule "vim/tools/tagbar"]
-	path = vim/tools/tagbar
-	url = git://github.com/majutsushi/tagbar.git
 [submodule "vim/tools/easymotion"]
 	path = vim/tools/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
@@ -170,3 +167,9 @@
 [submodule "vim/langs/vim-vala"]
 	path = vim/langs/vim-vala
 	url = git://github.com/mytoh/vim-vala.git
+[submodule "vim/tools/YouCompleteMe"]
+	path = vim/tools/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
+[submodule "vim/langs/fish"]
+	path = vim/langs/fish
+	url = git://github.com/vim-scripts/fish.vim.git

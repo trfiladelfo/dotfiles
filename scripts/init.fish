@@ -18,7 +18,6 @@ end
 
 #read the path file and load all directories to $PATH
 for line in (awk '/^[^#]/ { print $1 }' $dotfiles/path)
-  set line (eval echo $line) 
   if not contains $line $PATH
     set PATH $line $PATH
   end
