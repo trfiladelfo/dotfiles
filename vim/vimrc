@@ -9,17 +9,6 @@ call pathogen#infect('~/.dotfiles/vim/langs')
 call pathogen#infect('~/.dotfiles/vim/tools')
 call pathogen#helptags()
 
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" ----------------------------------------------------------------------------
-"   Load Vam
-" ----------------------------------------------------------------------------
-
-call vam#ActivateAddons(["snipmate-snippets"])
-
 " ----------------------------------------------------------------------------
 "  Text Formatting
 " ----------------------------------------------------------------------------
@@ -206,6 +195,23 @@ nmap <F5> :NERDTreeToggle<cr>
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark 
 map <leader>nf :NERDTreeFind<cr>
+
+" Neosnippet
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.dotfiles/vim/tools/snipmate-snippets/snippets'
 
 
 " ----------------------------------------------------------------------------
