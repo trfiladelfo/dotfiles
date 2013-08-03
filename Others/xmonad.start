@@ -1,0 +1,9 @@
+#!/bin/bash 
+
+xsetroot -cursor_name left_ptr
+feh --bg-scale /home/davysson/Dropbox/misc/Wallpapers/space1200.jpg
+
+# Start compositing
+compton -cC -fF -i 0.8 &
+
+exec xmonad

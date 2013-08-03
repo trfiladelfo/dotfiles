@@ -1,0 +1,1 @@
+fromList [("Run: ",["urxvt","nautilus","killall pantheon-terminal","killall nemo","nemo","pantheon-terminal","chromium","urxvt","vlc"]),("XMonad: ",["killall nemo"])]

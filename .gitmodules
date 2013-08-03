@@ -38,9 +38,6 @@
 [submodule "vim/tools/gundo"]
 	path = vim/tools/gundo
 	url = git://github.com/sjl/gundo.vim.git
-[submodule "vim/tools/conque"]
-	path = vim/tools/conque
-	url = git://github.com/chilicuil/conque.git
 [submodule "vim/langs/arduino"]
 	path = vim/langs/arduino
 	url = git://github.com/vim-scripts/Arduino-syntax-file.git
