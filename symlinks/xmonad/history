@@ -1,1 +1,1 @@
-fromList [("Run: ",["urxvt","nautilus","killall pantheon-terminal","killall nemo","nemo","pantheon-terminal","chromium","urxvt","vlc"]),("XMonad: ",["killall nemo"])]
+fromList [("Run: ",["killall thunar","kiall thuanr","thunar","killall thunar","thunar","chromium","transmission-gtk","pantheon-terminal","gvim","vim","chromium","thunar","chromium","thunar","chromium","nemo","lxappearance","chromium","mplayer","mplaer","chromium","transmission-gtk","chromium","vlc","chromium"]),("XMonad: ",["nemo","nitrogen"])]

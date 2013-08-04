@@ -80,8 +80,8 @@ main = do
 --------------------------------------------------------------------------------------------
  
 -- Colors and fonts
-myFont               = "Monaco:size=12"
-dzenFont             = "AvantGarde LT Medium:size=7"
+myFont               = "Envy Code R:size=8"
+dzenFont             = "Envy Code R:size=8"
 colorBlack           = "#1a1a1a" --Background (Dzen_BG)
 colorBlackAlt        = "#404040" --Black Xdefaults
 colorGray            = "#444444" --Gray       (Dzen_FG2)
@@ -90,12 +90,12 @@ colorWhite           = "#808080" --Foreground (Shell_FG)
 colorWhiteAlt        = "#9d9d9d" --White dark (Dzen_FG)
 colorMagenta         = "#8e82a2"
 colorBlue            = "#87afd7"
-colorYellow          = "#ffaf5f"
+colorYellow          = "#FFE863"
 colorRed             = "#d75f5f"
-colorGreen           = "#87af5f"
+colorGreen           = "#BDE077"
 myArrow              = "^fg(" ++ colorWhiteAlt ++ ")>^fg(" ++ colorBlue ++ ")>^fg(" ++ colorGray ++ ")>"
 myNormalBorderColor  = "#222222"
-myFocusedBorderColor = "#d75f5f"
+myFocusedBorderColor = "#6c71c4"
  
 -- Tab theme
 myTabTheme :: Theme
@@ -149,7 +149,7 @@ myGSConfig colorizer = (buildDefaultGSConfig myColorizer)
  
 -- Workspaces
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = ["[1:TERM]", "[2:WEBS]", "[3:CODE]", "[4:GRFX]", "[5:CHAT]", "[6:GAME]", "[7:VIDS]", "[8:OTHR]"]
+myWorkspaces = ["term", "web", "code", "grfx", "chat", "game", "video", "other"]
  
  
 --------------------------------------------------------------------------------------------
@@ -229,7 +229,7 @@ myManageHook = (composeAll . concat $
         myGameS         = ["hon-x86", "Heroes of Newerth"]
         myOtherS        = ["Amule", "Transmission-gtk"]
         myFloatCC       = ["MPlayer", "File-roller", "zsnes", "Gcalctool", "Exo-helper-1", "Gksu", "PSX", "Galculator", "Nvidia-settings", "XFontSel", "XCalc", "XClock", "Desmume", "Ossxmix", "Xvidcap", "Main", "Wicd-client.py", "com-mathworks-util-PostVMInit"]
-        myFloatCN       = ["ePSXe - Enhanced PSX emulator", "Seleccione Archivo", "Config Video", "Testing plugin", "Config Sound", "Config Cdrom", "Config Bios", "Config Netplay", "Config Memcards", "About ePSXe", "Config Controller", "Config Gamepads", "Select one or more files to open", "Add media", "Choose a file", "Open Image", "File Operation Progress", "Firefox Preferences", "Preferences", "Search Engines", "Set up sync", "Passwords and Exceptions", "Autofill Options", "Rename File", "Copying files", "Moving files", "File Properties", "Replace", ""]
+        myFloatCN       = ["thunar","urxvt","ePSXe - Enhanced PSX emulator", "Seleccione Archivo", "Config Video", "Testing plugin", "Config Sound", "Config Cdrom", "Config Bios", "Config Netplay", "Config Memcards", "About ePSXe", "Config Controller", "Config Gamepads", "Select one or more files to open", "Add media", "Choose a file", "Open Image", "File Operation Progress", "Firefox Preferences", "Preferences", "Search Engines", "Set up sync", "Passwords and Exceptions", "Autofill Options", "Rename File", "Copying files", "Moving files", "File Properties", "Replace", ""]
         myFloatSN       = ["Event Tester"]
         myFocusDC       = ["Event Tester", "Notify-osd"]
  
@@ -244,9 +244,9 @@ myUrgencyHook = withUrgencyHook dzenUrgencyHook
  
 -- StatusBars
 myWorkspaceBar, myBottomStatusBar, myTopStatusBar :: String
-myWorkspaceBar    = "dzen2 -x '0' -y '0' -h '17' -w '1920' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ dzenFont ++ "' -p -e ''"
-myBottomStatusBar = "conky"
-myTopStatusBar    = "conky -c /home/davysson/.conkydzentop | dzen2 -x '1200' -y '0' -h '17' -w '1200' -fg '" ++colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ dzenFont ++ "' -ta r -e ''"
+myWorkspaceBar    = "dzen2 -x '0' -y '0' -h '17' -w '920' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ dzenFont ++ "' -p -e ''"
+myBottomStatusBar = "conky -c /home/davysson/.conkydzenbott | dzen2 -x '0' -y '1200' -h '17' -w '1920' -fg '" ++colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ dzenFont ++ "' -ta r -e ''"
+myTopStatusBar    = "conky -c /home/davysson/.conkydzentop | dzen2 -x '920' -y '0' -h '17' -w '1000' -fg '" ++colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ dzenFont ++ "' -ta r -e ''"
  
 -- myWorkspaceBar config
 myLogHook :: Handle -> X ()
@@ -332,9 +332,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((mod1Mask .|. shiftMask, xK_f), spawn "thunar")                                         --Launch thunar
     , ((mod1Mask .|. shiftMask, xK_t), spawn "urxvt")                                          --Launch urxvt terminal
     , ((modMask, xK_c), kill)                                                                  --Close focused window
-    , ((mod1Mask, xK_p), spawn "dmenu_run")						       --Launch dmenu
-    , ((mod1Mask, xK_r), spawn "shutdown -r now")					       --Reboot
-    , ((mod1Mask, xK_s), spawn "shutdown -h now")					       --Shutdown
+    , ((mod1Mask, xK_p), spawn "dmenu_run -fn 'Envy Code R:size=12' -y '600' -h '27' -dim 0.2 -nb '#222222' -sb '#BDE077' -sf '#111111'")	--Launch dmenu
+    , ((mod1Mask, xK_r), spawn "shutdown -r now")					                           --Reboot
+    , ((mod1Mask, xK_s), spawn "shutdown -h now")					                           --Shutdown
     , ((modMask, xK_space), sendMessage NextLayout)                                            --Rotate through the available layout algorithms
     , ((modMask .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)                 --Reset the layouts on the current workspace to default
     , ((modMask, xK_n), refresh)                                                               --Resize viewed windows to the correct size
@@ -369,7 +369,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. shiftMask, xK_f), fullFloatFocused)                                        --Push window into full screen
     , ((modMask, xK_comma), sendMessage (IncMasterN 1))                                        --Increment the number of windows in the master area
     , ((modMask, xK_period), sendMessage (IncMasterN (-1)))                                    --Deincrement the number of windows in the master area
-    , ((modMask , xK_d), spawn "killall dzen2")                                                --Kill dzen2 and trayer
+    , ((modMask , xK_d), spawn "killall dzen2 & killall conky")                                                --Kill dzen2 and trayer
     , ((modMask , xK_s), spawn "xscreensaver-command -lock")                                   --Lock screen
     , ((modMask .|. shiftMask, xK_q), io (exitWith ExitSuccess))                               --Quit xmonad
     , ((modMask, xK_q), restart "xmonad" True)                                                 --Restart xmonad

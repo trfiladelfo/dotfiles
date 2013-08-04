@@ -1,7 +1,7 @@
 #!/bin/bash
 #Dzen2 Second Monitor Status Bar
 
-loc="/home/samir/.xmonad/dzen/"
+loc="/home/davysson/.xmonad/dzen/"
 sep="^i(${loc}sep.xbm)"
 vid="^fg(#ff8800)^i(${loc}vid.xbm)^fg()"
 cpu="^fg(#ff8800)^i(${loc}cpu.xbm)^fg()"
