@@ -216,3 +216,5 @@ Aug 06 12:26 : decoder_thread: Unrecognized URI
 Aug 06 12:26 : decoder_thread: Unrecognized URI
 Aug 06 12:26 : decoder_thread: Unrecognized URI
 Aug 06 12:26 : decoder_thread: Unrecognized URI
+Aug 06 12:59 : avahi: Client Disconnected, will reconnect shortly
+Aug 06 12:59 : avahi: Could not reconnect: An unexpected D-Bus error occured

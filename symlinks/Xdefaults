@@ -4,82 +4,65 @@
 !
 ! General
 
-URxvt.termName:                 	rxvt-unicode
+URxvt.termName:             	rxvt-unicode-256color
+URxvt.geometry: 		70x20
 
-Xft.dpi:                            96
-Xft.antialias:              		true
-Xft.hinting:            			full
-Xft.hintstyle:              		hintslight
-Xft.rgba:                           rgb
+Xft.dpi:                    	96
+Xft.antialias:              	true
+Xft.hinting:            	full
+Xft.hintstyle:              	hintslight
+Xft.rgba:                       rgb
 
-Xcursor.theme:          			Neutral_Plus_Inverted
-Xcursor.size:           			10
+Xcursor.theme:          	Neutral_Plus_Inverted
+Xcursor.size:           	10
  
-URxvt.imLocale:                 	bs_BA.UTF-8
-URxvt.scrollBar:                	false
-URxvt.saveLines:                	32767
+URxvt.imLocale:                 pt_BR.UTF-8
+URxvt.scrollBar:                false
+URxvt.saveLines:                10000
 
-URxvt.depth: 32
-URxvt*background:  [80]Black
-URxvt.shading: 						40 
+!!URxvt.depth: 32
+URxvt.shading: 			40 
 
 
 !! Cursor
 
-URxvt.cursorBlink:          		true
-URxvt.cursorColor:          		#FFFFFF
-URxvt.colorUL: #4682B4
+URxvt.cursorBlink:          	true
+URxvt.cursorColor:          	#FFFFFF
+URxvt.colorUL: 			#4682B4
 
  
 !!clickable URLs
-URxvt.perl-ext-common:  default,matcher
-URxvt.url-launcher:      chromium
-URxvt.matcher.button:   1
+URxvt.perl-ext-common:  	default,matcher
+URxvt.url-launcher:      	chromium
+URxvt.matcher.button:   	1
 
 
 !! Fonts
 
-URxvt.font:                 		xft:Monaco:pixelsize=12:antialias=true:hinting=true
-URxvt.boldFont:                 	xft:Monaco:pixelsize=12:antialias=true:bold:hinting=true
-URxvt.italicFont:               	xft:Monaco:pixelsize=12:antialias=true:italic:autohint=true:hinting=true
-URxvt.bolditalicFont:           	xft:Monaco:pixelsize=12:antialias=true:bold:italic:autohint=true:hinting=true
+URxvt.font:                 	xft:Monaco:pixelsize=12:antialias=true:hinting=true
+URxvt.boldFont:               	xft:Monaco:pixelsize=12:antialias=true:bold:hinting=true
+URxvt.italicFont:               xft:Monaco:pixelsize=12:antialias=true:italic:autohint=true:hinting=true
+URxvt.bolditalicFont:           xft:Monaco:pixelsize=12:antialias=true:bold:italic:autohint=true:hinting=true
  
 !! Colours
 
-!*background:                		#222222
-*foreground:                		#a4a4a4
- 
-! ---| Jellybeans |--- {{{
-! Black
-*color0:        #1a1a1a
-*color8:        #404040
-! Red
-*color1:        #d75f5f
-*color9:        #d75f5f
-! Green
-*color2:        #87af5f
-*color10:       #C7F09F
-! Yellow
-*color3:        #ffaf5f
-*color11:       #FFCC9A
-! Blue
-*color4:        #87afd7
-*color12:       #a5caef
-! Mangenta
-*color5:        #8787af
-*color13:       #A6A6DE
-! Cyan
-*color6:        #5f8787
-*color14:       #69b2b2
-! White
-*color7:        #808080
-*color15:       #d7d7d7
- 
-! ---| xpdf |--- {{{
-xpdf*enableFreetype: yes
-xpdf*antialias: yes
-xpdf*foreground: black
-xpdf*background: white
-xpdf*urlCommand: swiftweasel %s
-xpdf*viKeys: on
-!}}}
+urxvt*foreground:   		#c5c8c6
+urxvt*background:   		[90]#1d1f21
+urxvt*cursorColor:  		#aeafad
+urxvt*color0:       		#000000
+urxvt*color1:       		#912226
+urxvt*color2:       		#778900
+urxvt*color3:       		#ae7b00
+urxvt*color4:       		#1d2594
+urxvt*color5:       		#682a9b
+urxvt*color6:       		#2b6651
+urxvt*color7:       		#929593
+urxvt*color8:       		#666666
+urxvt*color9:       		#cc6666
+urxvt*color10:  		#b5bd68
+urxvt*color11:    		#f0c674
+urxvt*color12:   		#81a2be
+urxvt*color13:  		#b294bb
+urxvt*color14:    		#8abeb7
+urxvt*color15:   		#ecebec
+

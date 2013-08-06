@@ -1,7 +1,9 @@
-set TERM xterm-256color
-set -U fish_color_user b294bb
+set TERM rxvt-unicode-256color
+#set -U fish_color_user 8abeb7
+set -U fish_color_user cc6666
 set -U fish_color_root cc6666
-set -U fish_color_host f0c674
+#set -U fish_color_host f0c674
+set -U fish_color_host b294bb 
 set -U fish_color_cwd b5bd68
 set -U fish_color_error de935f
 set -U fish_git_branch_color 00afaf
