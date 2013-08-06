@@ -182,9 +182,6 @@
 [submodule "vim/colors/vim-colors"]
 	path = vim/colors/vim-colors
 	url = https://github.com/DavyS/vim-colors.git
-[submodule "vim/tools/neocomplcache"]
-	path = vim/tools/neocomplcache
-	url = git://github.com/Shougo/neocomplcache.git
 [submodule "vim/tools/neosnippet"]
 	path = vim/tools/neosnippet
 	url = git://github.com/Shougo/neosnippet.git

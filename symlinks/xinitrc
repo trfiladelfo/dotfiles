@@ -1,0 +1,17 @@
+#set the cursor
+xsetroot --cursor_name left_ptr
+
+#set keyboard layout
+setxkbmap -layout br
+
+#set language
+export LANG=pt_BR.UTF-8
+
+#wallpaper
+feh --bg-scale ~/Dropbox/misc/Wallpapers/sleepy_kitten-1440x900.jpg
+
+#start compton
+compton --config ~/.compton.conf -b
+
+#start xmonad
+exec xmonad

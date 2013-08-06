@@ -211,6 +211,7 @@ myManageHook = (composeAll . concat $
     , [className    =? c     --> doShift (myWorkspaces !! 4)          | c <- myChatS  ] --move myChatS windows to workspace 4 by classname
     , [className    =? c     --> doShift (myWorkspaces !! 3)          | c <- myGfxS   ] --move myGfxS windows to workspace 4 by classname
     , [className    =? c     --> doShiftAndGo (myWorkspaces !! 5)     | c <- myGameS  ] --move myGameS windows to workspace 5 by classname and shift
+    , [className    =? c     --> doShiftAndGo (myWorkspaces !! 6)     | c <- myVideoS ] --move myOtherS windows to workspace 5 by classname and shift
     , [className    =? c     --> doShiftAndGo (myWorkspaces !! 7)     | c <- myOtherS ] --move myOtherS windows to workspace 5 by classname and shift
     , [className    =? c     --> doCenterFloat                        | c <- myFloatCC] --float center geometry by classname
     , [name         =? n     --> doCenterFloat                        | n <- myFloatCN] --float center geometry by name
@@ -226,10 +227,11 @@ myManageHook = (composeAll . concat $
         myWebS          = ["Chromium","Firefox","Google-chrome","google-chrome"]
         myGfxS          = ["gimp-2.6", "Gimp-2.6", "Gimp", "gimp", "GIMP"]
         myChatS         = ["Pidgin", "Xchat"]
-        myGameS         = ["hon-x86", "Heroes of Newerth"]
+        myVideoS         = ["mplayer","MPlayer","vlc"]
+        myGameS        = ["hon-x86", "Heroes of Newerth"]
         myOtherS        = ["Amule", "Transmission-gtk"]
         myFloatCC       = ["MPlayer", "File-roller", "zsnes", "Gcalctool", "Exo-helper-1", "Gksu", "PSX", "Galculator", "Nvidia-settings", "XFontSel", "XCalc", "XClock", "Desmume", "Ossxmix", "Xvidcap", "Main", "Wicd-client.py", "com-mathworks-util-PostVMInit"]
-        myFloatCN       = ["thunar","urxvt","ePSXe - Enhanced PSX emulator", "Seleccione Archivo", "Config Video", "Testing plugin", "Config Sound", "Config Cdrom", "Config Bios", "Config Netplay", "Config Memcards", "About ePSXe", "Config Controller", "Config Gamepads", "Select one or more files to open", "Add media", "Choose a file", "Open Image", "File Operation Progress", "Firefox Preferences", "Preferences", "Search Engines", "Set up sync", "Passwords and Exceptions", "Autofill Options", "Rename File", "Copying files", "Moving files", "File Properties", "Replace", ""]
+        myFloatCN       = ["transmission-gtk","thunar","urxvt","ePSXe - Enhanced PSX emulator", "Seleccione Archivo", "Config Video", "Testing plugin", "Config Sound", "Config Cdrom", "Config Bios", "Config Netplay", "Config Memcards", "About ePSXe", "Config Controller", "Config Gamepads", "Select one or more files to open", "Add media", "Choose a file", "Open Image", "File Operation Progress", "Firefox Preferences", "Preferences", "Search Engines", "Set up sync", "Passwords and Exceptions", "Autofill Options", "Rename File", "Copying files", "Moving files", "File Properties", "Replace", ""]
         myFloatSN       = ["Event Tester"]
         myFocusDC       = ["Event Tester", "Notify-osd"]
  
@@ -327,7 +329,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask, xK_F2), xmonadPrompt myXPConfig)                                              --Launch Xmonad prompt
     , ((modMask, xK_g), goToSelected $ myGSConfig myColorizer)                                 --Launch GridSelect
     , ((modMask, xK_masculine), scratchPad)                                                    --Scratchpad
-    , ((mod1Mask .|. shiftMask, xK_w), spawn "google-chrome")                                  --Launch chromium
+    , ((mod1Mask .|. shiftMask, xK_w), spawn "chromium")                                  --Launch chromium
     , ((mod1Mask .|. shiftMask, xK_e), spawn "subl")                                           --Launch chromium
     , ((mod1Mask .|. shiftMask, xK_f), spawn "thunar")                                         --Launch thunar
     , ((mod1Mask .|. shiftMask, xK_t), spawn "urxvt")                                          --Launch urxvt terminal

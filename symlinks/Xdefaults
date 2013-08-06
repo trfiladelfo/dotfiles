@@ -19,25 +19,24 @@ URxvt.imLocale:                 	bs_BA.UTF-8
 URxvt.scrollBar:                	false
 URxvt.saveLines:                	32767
 
-URxvt.transparent: 					true
+URxvt.depth: 32
+URxvt*background:  [80]Black
 URxvt.shading: 						40 
+
 
 !! Cursor
 
 URxvt.cursorBlink:          		true
 URxvt.cursorColor:          		#FFFFFF
- 
- 
-URxvt.visualBell:               	true
- 
-!! urlLauncher 
+URxvt.colorUL: #4682B4
 
-URxvt.perl-lib:           			/usr/lib/urxvt/perl/
-URxvt.perl-ext-common:    			default,matcher
-URxvt.urlLauncher:        			/usr/bin/swiftweasel
-URxvt.matcher.button:     			1
-URxvt.matcher.pattern.1:  			\\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
  
+!!clickable URLs
+URxvt.perl-ext-common:  default,matcher
+URxvt.url-launcher:      chromium
+URxvt.matcher.button:   1
+
+
 !! Fonts
 
 URxvt.font:                 		xft:Monaco:pixelsize=12:antialias=true:hinting=true

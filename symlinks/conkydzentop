@@ -3,6 +3,7 @@
 ##############################################
 #  Settings
 ##############################################
+own_window_class conky
 use_xft yes
 out_to_x no
 background no

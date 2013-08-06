@@ -11,18 +11,6 @@ for f in $dotfiles/aliases/*.fish
   . $f
 end
 
-#Load all files in $dotfiles/autoload
-for f in $dotfiles/autoload/*.fish
-  . $f
-end
-
-#read the path file and load all directories to $PATH
-for line in (awk '/^[^#]/ { print $1 }' $dotfiles/path)
-  if not contains $line $PATH
-    set PATH $line $PATH
-  end
-end
-
 #link all files in $DOTFILES/symlinks to home
 for file in $dotfiles/symlinks/*
   set file (basename $file) 
@@ -37,10 +25,17 @@ cd $current_dir
 #fix broken symlinks
 command find $HOME -maxdepth 1 -type l  -xtype l -delete
 
+#add dotfiles/bin to path
+if not contains $dotfiles/bin $PATH
+  set PATH $dotfiles/bin $PATH
+end
+
+
 ###
 #Fish
 ###
 set fish_path $dotfiles/fish
+
 
 . $dotfiles/fish/config.fish
 
