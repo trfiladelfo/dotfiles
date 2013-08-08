@@ -10,11 +10,9 @@ export LANG=pt_BR.UTF-8
 #start numlockx
 numlockx &
 
-#wallpaper
-feh --bg-scale ~/Dropbox/misc/Wallpapers/sleepy_kitten-1440x900.jpg
-
 #start compton
 compton --config ~/.compton.conf -b
 
 #start xmonad
-exec xmonad
+#exec xmonad
+exec awesome -c ~/.awesome/rc.lua
