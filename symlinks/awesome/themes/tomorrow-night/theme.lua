@@ -53,26 +53,34 @@ theme.menu_width  = "100"
 
 -- {{{ Icons
 theme.widget_arch = theme.icons .. "/blue/arch.png"
-theme.widget_pac = theme.icons .. "/yellow/pacman.png"
+theme.widget_pac = theme.icons .. "/blue/pacman.png"
 theme.widget_mail = theme.icons .. "/red/mail.png"
-theme.widget_mem = theme.icons .. "/magenta/mem.png"
-theme.widget_cpu = theme.icons .. "/magenta/cpu.png"
+theme.widget_mem = theme.icons .. "/blue/mem.png"
+theme.widget_cpu = theme.icons .. "/blue/cpu.png"
 theme.widget_mpd = theme.icons .. "/blue/play.png"
-theme.widget_netup = theme.icons .. "/yellow/net_up_03.png"
-theme.widget_netdown = theme.icons .. "/green/net_down_03.png"
+theme.widget_netup = theme.icons .. "/blue/net_up_03.png"
+theme.widget_netdown = theme.icons .. "/blue/net_down_03.png"
 theme.widget_tag_black = theme.icons .. "/black/fs_01.png"
 theme.widget_tag_red = theme.icons .. "/red/fs_01.png"
 theme.widget_tag_magenta = theme.icons .. "/magenta/fs_01.png"
 theme.widget_tag_yellow = theme.icons .. "/yellow/fs_01.png"
 theme.widget_tag_green = theme.icons .. "/green/fs_01.png"
 theme.widget_spkr = theme.icons .. "/blue/spkr_01.png"
+theme.widget_fs = theme.icons .. "/blue/fs_01.png"
+theme.widget_clock = theme.icons .. "/blue/clock.png"
 -- }}}
 
 -- {{{ Taglist
 theme.taglist_squares_sel   = "/usr/share/awesome/themes/zenburn/taglist/squarefz.png"
 theme.taglist_squares_unsel = "/usr/share/awesome/themes/zenburn/taglist/squarez.png"
+theme.taglist_fg_focus = "#81a2be"
 -- }}}
 
+-- {{{ Tasklsit
+theme.tasklist_fg_focus = "#81a2be"
+theme.tasklist_bg_focus = "#1d1f21"
+-- }}}
+--
 -- {{{ Misc
 theme.awesome_icon           = "/usr/share/awesome/themes/zenburn/awesome-icon.png"
 theme.menu_submenu_icon      = "/usr/share/awesome/themes/default/submenu.png"

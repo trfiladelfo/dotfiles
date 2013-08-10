@@ -8,6 +8,7 @@ local beautiful = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
 local vicious = require("vicious")
+local kernel_version = require("kernel_version")
 
 
 -- Default applications
@@ -68,21 +69,27 @@ local mainmenu = awful.menu({
 local separator = wibox.widget.textbox()
 separator:set_text(' ')
 
+-- Pacman
+pacmanicon = wibox.widget.imagebox()
+pacmanicon:set_image(beautiful.widget_pac)
+pacmanwidget = wibox.widget.textbox()
+
+vicious.register(pacmanwidget, vicious.widgets.pkg,
+  "$1", 60, "Arch")
+
 --cpu
 local cpuwidget = wibox.widget.textbox()
 local cpuicon = wibox.widget.imagebox()
 cpuicon:set_image(beautiful.widget_cpu)
 
-vicious.register(cpuwidget, vicious.widgets.cpu,
-  '<span color="' .. beautiful.fg_magenta .. '">$1%</span>', 13)
+vicious.register(cpuwidget, vicious.widgets.cpu,'$3%', 13)
 
 --memory
 local memwidget = wibox.widget.textbox()
 local memicon = wibox.widget.imagebox()
 memicon:set_image(beautiful.widget_mem)
 
-vicious.register(memwidget, vicious.widgets.mem,
-  '<span color="' .. beautiful.fg_magenta .. '">$1%</span>', 13)
+vicious.register(memwidget, vicious.widgets.mem,'$1%', 13)
 
 --network
 netupwidget = wibox.widget.textbox()
@@ -92,15 +99,15 @@ netdownicon = wibox.widget.imagebox()
 netupicon:set_image(beautiful.widget_netup)
 netdownicon:set_image(beautiful.widget_netdown)
 
-vicious.register(netupwidget, vicious.widgets.net, '<span color="' .. theme.fg_yellow  .. '">${eno1 up_kb}</span>', 3)
-vicious.register(netdownwidget, vicious.widgets.net, '<span color="' .. theme.fg_green  .. '">${eno1 down_kb}</span>', 3)
+vicious.register(netupwidget, vicious.widgets.net, '${eno1 up_kb}', 3)
+vicious.register(netdownwidget, vicious.widgets.net, '${eno1 down_kb}', 3)
 
 --audio
 audiowidget = wibox.widget.textbox()
 local audioicon = wibox.widget.imagebox()
 audioicon:set_image(beautiful.widget_spkr)
 
-vicious.register(audiowidget, vicious.widgets.volume, '<span color="' .. theme.fg_blue .. '">$1%</span>', 2, "PCM")
+vicious.register(audiowidget, vicious.widgets.volume, '$1%', 2, "PCM")
 
 audiowidget:buttons(awful.util.table.join(
   awful.button({ }, 1, function () awful.util.spawn("amixer -q set PCM 5dB+", false) end),
@@ -108,12 +115,33 @@ audiowidget:buttons(awful.util.table.join(
 ))
 
 --Clock
-local clock = awful.widget.textclock()
+local clockicon = wibox.widget.imagebox()
+clockicon:set_image(beautiful.widget_clock)
+local clockwidget = awful.widget.textclock()
 
 
 --Kernel
+local kernelwidget = wibox.widget.textbox()
+kernelwidget:set_text(kernel_version)
 local archicon = wibox.widget.imagebox()
 archicon:set_image(beautiful.widget_arch)
+
+
+--Filesystem
+local fsicon = wibox.widget.imagebox()
+fsicon:set_image(beautiful.widget_fs)
+
+local fsrootwidget = wibox.widget.textbox()
+vicious.register(fsrootwidget, vicious.widgets.fs,
+"ROOT <span color='" .. beautiful.fg_yellow .. "'>${/ used_gb}GB</span>/<span color='" .. beautiful.fg_green .. "'>${/ size_gb}GB</span>(<span color='" .. beautiful.fg_blue .. "'>${/ avail_gb}GB</span>)")
+
+local fsdadoswidget = wibox.widget.textbox()
+vicious.register(fsdadoswidget, vicious.widgets.fs,
+"Dados <span color='" .. beautiful.fg_yellow .. "'>${/media/Dados used_gb}GB</span>/<span color='" .. beautiful.fg_green .. "'>${/media/Dados size_gb}GB</span>(<span color='" .. beautiful.fg_blue .. "'>${/media/Dados avail_gb}GB</span>)")
+
+local fswindowswidget = wibox.widget.textbox()
+vicious.register(fswindowswidget, vicious.widgets.fs,
+"Windows8 <span color='" .. beautiful.fg_yellow .. "'>${/media/windows8 used_gb}GB</span>/<span color='" .. beautiful.fg_green .. "'>${/media/windows8 size_gb}GB</span>(<span color='" .. beautiful.fg_blue .. "'>${/media/windows8 avail_gb}GB</span>)")
 
 --UpTIme
 local uptimewidget = wibox.widget.textbox()
@@ -153,6 +181,9 @@ for s = 1, screen.count() do
   if screen.count() == 2 and s == 2 or screen.count() == 1 then
     right_layout:add(wibox.widget.systray())
     right_layout:add(separator)
+    right_layout:add(pacmanicon)
+    right_layout:add(pacmanwidget)
+    right_layout:add(separator)
     right_layout:add(cpuicon)
     right_layout:add(cpuwidget)
     right_layout:add(memicon)
@@ -166,7 +197,8 @@ for s = 1, screen.count() do
     right_layout:add(audioicon)
     right_layout:add(audiowidget)
     right_layout:add(separator)
-    right_layout:add(clock)
+    right_layout:add(clockicon)
+    right_layout:add(clockwidget)
   end
 
   local layout = wibox.layout.align.horizontal()
@@ -181,12 +213,24 @@ for s = 1, screen.count() do
 
   local bot_left_layout = wibox.layout.fixed.horizontal()
   bot_left_layout:add(archicon)
+  bot_left_layout:add(kernelwidget)
 
   local bot_right_layout = wibox.layout.fixed.horizontal()
   bot_right_layout:add(uptimewidget)
 
+  local bot_middle_layout = wibox.layout.fixed.horizontal()
+  bot_middle_layout:add(fsicon)
+  bot_middle_layout:add(fsrootwidget)
+  bot_middle_layout:add(separator)
+  bot_middle_layout:add(fsicon)
+  bot_middle_layout:add(fsdadoswidget)
+  bot_middle_layout:add(separator)
+  bot_middle_layout:add(fsicon)
+  bot_middle_layout:add(fswindowswidget)
+
   local bot_layout = wibox.layout.align.horizontal()
   bot_layout:set_left(bot_left_layout)
+  bot_layout:set_middle(bot_middle_layout)
   bot_layout:set_right(bot_right_layout)
 
   botpanel[s]:set_widget(bot_layout)
@@ -222,10 +266,10 @@ globalkeys = awful.util.table.join(
     if curidx == 1 then dstidx = 9 end
     awful.client.movetotag(tags[mouse.screen][dstidx], c)
   end),
-  awful.key({ modkey, }, "t", function() awful.util.spawn(terminal) end),
-  awful.key({ modkey, }, "e", function() awful.util.spawn(editor) end),
-  awful.key({ modkey, }, "w", function() awful.util.spawn(browser) end),
-  awful.key({ modkey, }, "f", function() awful.util.spawn(filemanager) end),
+  awful.key({ modkey, "Shift"}, "t", function() awful.util.spawn(terminal) end),
+  awful.key({ modkey, "Shift"}, "e", function() awful.util.spawn(editor) end),
+  awful.key({ modkey, "Shift"}, "w", function() awful.util.spawn(browser) end),
+  awful.key({ modkey, "Shift"}, "f", function() awful.util.spawn(filemanager) end),
   awful.key({ modkey, "Control" }, "r", awesome.restart),
   awful.key({ modkey, "Control" }, "q", awesome.quit),
   awful.key({ modkey, }, "l", function() awful.tag.incmwfact( 0.05) end),
