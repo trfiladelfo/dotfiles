@@ -14,9 +14,10 @@ local kernel_version = require("kernel_version")
 -- Default applications
 
 local terminal = "urxvt"
-local browser = "chromium"
+local browser = "firefox"
 local filemanager = "nemo --no-desktop"
 local editor = "vim"
+local launcher = "synapse"
 
 local modkey = "Mod4"
 local awesomedir = home .. "/.awesome"
@@ -29,7 +30,8 @@ local icons = awesomedir .. "/icons"
 -- Theme init
 
 beautiful.init(active_theme .. "/theme.lua")
-beautiful.wallpaper = wallpapers .. "/sleepy-kitten.jpg"
+--beautiful.wallpaper = wallpapers .. "/sleepy-kitten.jpg"
+beautiful.wallpaper = "/home/davysson/Dropbox/misc/Wallpapers/Scenic Pack Vol. 2/3/1920x1200.png"
 
 gears.wallpaper.maximized(beautiful.wallpaper, nil, true)
 
@@ -48,20 +50,32 @@ local tags = {
   names = { "TERM", "WEB", "CODE", "CHAT", "GAME", "VIDEO", "OTHERS" }
 }
 
+
 for s = 1, screen.count() do
   tags[s] = awful.tag(tags.names, s, layouts.floating)
+
+  awful.tag.seticon(beautiful.taglist_terminal, tags[s][1])
+  awful.tag.seticon(beautiful.taglist_web, tags[s][2])
+  awful.tag.seticon(beautiful.taglist_code, tags[s][3])
+  awful.tag.seticon(beautiful.taglist_chat, tags[s][4])
+  awful.tag.seticon(beautiful.taglist_game, tags[s][5])
+  awful.tag.seticon(beautiful.taglist_video, tags[s][6])
+  awful.tag.seticon(beautiful.taglist_others, tags[s][7])
 end
 
 
 -- Contextual menu
+local awesomemenu = {
+    {"restart", awesome.restart},
+    {"quit", awesome.quit}
+}
 
 local mainmenu = awful.menu({
   items = {
+    {"awesome", awesomemenu},
     {"term", terminal},
     {"browser", browser},
     {"files", filemanager},
-    {"restart", awesome.restart},
-    {"quit", awesome.quit},
   }
 })
 
@@ -150,7 +164,6 @@ vicious.register(uptimewidget, vicious.widgets.uptime, "UPTIME: <span color='" .
 
 local toppanel = {}
 local botpanel = {}
-local promptbox = {}
 local taglist = {}
 local tasklist = {}
 
@@ -160,8 +173,6 @@ taglist.buttons = awful.util.table.join(
 )
 
 for s = 1, screen.count() do
-  promptbox[s] = awful.widget.prompt()
-
   taglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all,
     taglist.buttons)
 
@@ -175,7 +186,6 @@ for s = 1, screen.count() do
   left_layout:add(separator)
   left_layout:add(taglist[s])
   left_layout:add(separator)
-  left_layout:add(promptbox[s])
 
   local right_layout = wibox.layout.fixed.horizontal()
   if screen.count() == 2 and s == 2 or screen.count() == 1 then
@@ -189,10 +199,10 @@ for s = 1, screen.count() do
     right_layout:add(memicon)
     right_layout:add(memwidget)
     right_layout:add(separator)
-    right_layout:add(netupicon)
-    right_layout:add(netupwidget)
     right_layout:add(netdownicon)
     right_layout:add(netdownwidget)
+    right_layout:add(netupicon)
+    right_layout:add(netupwidget)
     right_layout:add(separator)
     right_layout:add(audioicon)
     right_layout:add(audiowidget)
@@ -276,7 +286,7 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey, }, "h", function() awful.tag.incmwfact(-0.05) end),
   awful.key({ modkey, }, "space", function() awful.layout.inc(layouts, 1) end),
   awful.key({ modkey, "Control" }, "n", awful.client.restore),
-  awful.key({ modkey }, "r", function() promptbox[mouse.screen]:run() end),
+  awful.key({ modkey }, "r", function() awful.util.spawn(launcher) end),
   awful.key({ modkey, }, "o", awful.client.movetoscreen ),
   awful.key({ modkey, "Mod1" }, "m", function() xrandr.switch(2) end),
   awful.key({ }, "XF86AudioRaiseVolume", function()
@@ -391,6 +401,13 @@ rules.rules = {
     },
     { rule = { class = "Exe"}, properties = {floating = true} },
     { rule = { class = "Chromium"}, properties = {tag = tags[1][2]} },
+    { rule = { class = "Firefox"}, properties = {tag = tags[1][2]} },
     { rule = { class = "MPlayer"}, properties = {floating = true, tag = tags[1][6]} },
+    { rule = { class = "mpv"}, properties = {floating = true, tag = tags[1][6]} },
+    { rule = { class = "xbmc"}, properties = {floating = true, tag = tags[1][6]} },
+    { rule = { class = "Xchat"}, properties = {floating = true, tag = tags[1][4]} },
     { rule = { class = "URxvt"}, properties = {opacity = 0.9, floating = true, tag = tags[1][1]} },
+    { rule = { class = "Nemo"}, properties = {floating = true, tag = tags[1][7]} },
+    { rule = { class = "Transmission-gtk"}, properties = {floating = true, tag = tags[1][7]} },
+    { rule = { class = "Synapse"}, properties = {border_width = 0} },
 }

@@ -10,6 +10,5 @@ numlockx &
 #start compton
 compton --config ~/.compton.conf -b
 
-#start xmonad
-#exec xmonad
+#exec awesome
 exec awesome -c ~/.awesome/rc.lua

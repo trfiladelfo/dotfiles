@@ -32,9 +32,6 @@
 [submodule "vim/tools/fugitive"]
 	path = vim/tools/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/tools/powerline"]
-	path = vim/tools/powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule "vim/tools/gundo"]
 	path = vim/tools/gundo
 	url = git://github.com/sjl/gundo.vim.git
@@ -188,3 +185,6 @@
 [submodule "vim/tools/snipmate-snippets"]
 	path = vim/tools/snipmate-snippets
 	url = git://github.com/honza/snipmate-snippets.git
+[submodule "vim/tools/neo-complete"]
+	path = vim/tools/neo-complete
+	url = https://github.com/Shougo/neocomplete.vim.git

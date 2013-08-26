@@ -49,6 +49,7 @@ theme.mouse_finder_color = "#de935f"
 -- {{{ Menu
 theme.menu_height = "15"
 theme.menu_width  = "100"
+theme.menu_border_width  = "0"
 -- }}}
 
 -- {{{ Icons
@@ -74,6 +75,13 @@ theme.widget_clock = theme.icons .. "/blue/clock.png"
 theme.taglist_squares_sel   = "/usr/share/awesome/themes/zenburn/taglist/squarefz.png"
 theme.taglist_squares_unsel = "/usr/share/awesome/themes/zenburn/taglist/squarez.png"
 theme.taglist_fg_focus = "#81a2be"
+theme.taglist_video = theme.icons .. "/pidi-icons/light/video1.png"
+theme.taglist_terminal = theme.icons .. "/pidi-icons/light/terminal.png"
+theme.taglist_web = theme.icons .. "/pidi-icons/light/browser2.png"
+theme.taglist_code = theme.icons .. "/pidi-icons/light/editor1.png"
+theme.taglist_chat = theme.icons .. "/pidi-icons/light/mail1.png"
+theme.taglist_game = theme.icons .. "/pidi-icons/light/run.png"
+theme.taglist_others = theme.icons .. "/pidi-icons/light/package1.png"
 -- }}}
 
 -- {{{ Tasklsit
