@@ -182,9 +182,12 @@
 [submodule "vim/tools/neosnippet"]
 	path = vim/tools/neosnippet
 	url = git://github.com/Shougo/neosnippet.git
-[submodule "vim/tools/snipmate-snippets"]
-	path = vim/tools/snipmate-snippets
-	url = git://github.com/honza/snipmate-snippets.git
 [submodule "vim/tools/neo-complete"]
 	path = vim/tools/neo-complete
 	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "vim/tools/airline"]
+	path = vim/tools/airline
+	url = https://github.com/bling/vim-airline.git
+[submodule "vim/tools/snipmate-snippets"]
+	path = vim/tools/snipmate-snippets
+	url = https://github.com/scrooloose/snipmate-snippets.git
