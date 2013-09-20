@@ -117,6 +117,7 @@ noremap <C-Q> <C-V>
 "  UI
 " ----------------------------------------------------------------------------
 
+set shell=/bin/bash
 set ruler                  " show the cursor position all the time
 set noshowcmd              " don't display incomplete commands
 set nolazyredraw           " turn off lazy redraw

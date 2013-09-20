@@ -1,4 +1,4 @@
-set TERM rxvt-unicode-256color
+#set TERM rxvt-unicode-256color
 #set -U fish_color_user 8abeb7
 set -U fish_color_user cc6666
 set -U fish_color_root cc6666
